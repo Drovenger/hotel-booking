@@ -1,4 +1,4 @@
-package hotel.booking;
+package hotel.booking.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,7 +41,5 @@ public class AppController {
 	public String register() {
 		return "register";
 	}
-	
-	
-	
+
 }

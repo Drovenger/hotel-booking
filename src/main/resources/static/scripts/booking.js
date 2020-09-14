@@ -83,7 +83,7 @@ function getCookie(cname) {
 
 
 function constructDiv(ratingsDiv, objIdx) {
-	 $("#searchContainerResultGrid").append("<div class=\"card\"><div class=\"card-header bg-danger searchResultHeader\">"+objIdx.name+
+	 $("#searchContainerResultGrid").append("<div class=\"card\"><div class=\"card-header bg-primary searchResultHeader\">"+objIdx.name+
 			 "</div><div class=\"card-body\"><div class=\"fontSize20\"><i class=\"material-icons location-icon\">location_on</i>"+objIdx.address+", "+objIdx.city+", "+objIdx.province+", "+objIdx.postalcode+"</div><div>" +
 			 ratingsDiv +
 			 		"<div class=\"bold\">Review(s)</div><div class=\"themeColor\">"+objIdx.reviewUsername+"</div><div>"+objIdx.reviewTitle+"</div><div>"+objIdx.reviewText+"</div><div class=\"bold\">Country</div><div>"+objIdx.country+"</div><div class=\"bold\">Categories:</div><div>"+objIdx.categories+"</div>" +

@@ -1,4 +1,4 @@
-package hotel.booking;
+package hotel.booking.model;
 
 public class AccessTokenMapper {
 

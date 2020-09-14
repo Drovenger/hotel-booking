@@ -1,6 +1,5 @@
-package hotel.booking.dao;
+package hotel.booking.service;
 
-import hotel.booking.HotelServiceDAO;
 import hotel.booking.model.Category;
 import hotel.booking.model.Hotel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-public class HotelServiceDAOImpl implements HotelServiceDAO {
+class HotelServiceImpl implements HotelService {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
@@ -51,9 +50,9 @@ public class HotelServiceDAOImpl implements HotelServiceDAO {
 
     @Override
     public List<String> searchTerm(String term) {
-        Collection<Map<String, Object>> rows = jdbcTemplate.queryForList("select * from hotel where name like ? or address like ? or city like ? or province like ? limit 50", new Object[]{
-                "%" + term + "%", "%" + term + "%", "%" + term + "%", "%" + term + "%"
-        });
+        Collection<Map<String, Object>> rows = jdbcTemplate
+                .queryForList("select * from hotel where name like ? or address like ? or city like ? or province like ? limit 50",
+                        new Object[]{"%" + term + "%", "%" + term + "%", "%" + term + "%", "%" + term + "%"});
         List<String> termList = new ArrayList<>();
         rows.stream().map((row) -> {
             return (String) row.get("name") + ", " + row.get("address") + ", " + row.get("city") + ", " + row.get("province") + ", " + row.get("postalcode");
@@ -69,9 +68,9 @@ public class HotelServiceDAOImpl implements HotelServiceDAO {
     public List<Hotel> searchHotels(String term, int offset, int limit, String sortcolumn, String sorttype) {
 
 
-        Collection<Map<String, Object>> rows = jdbcTemplate.queryForList("select * from hotel where categories like ? or name like ? or address like ? or city like ? or province like ? order by ? ? limit ?,?", new Object[]{
-                "%" + term + "%", "%" + term + "%", "%" + term + "%", "%" + term + "%", "%" + term + "%", sortcolumn, sorttype, offset, limit
-        });
+        Collection<Map<String, Object>> rows = jdbcTemplate
+                .queryForList("select * from hotel where categories like ? or name like ? or address like ? or city like ? or province like ? order by ? ? limit ?,?",
+                        new Object[]{"%" + term + "%", "%" + term + "%", "%" + term + "%", "%" + term + "%", "%" + term + "%", sortcolumn, sorttype, offset, limit});
         List<Hotel> searchList = new ArrayList<>();
         rows.stream().map((row) -> {
             Hotel hotel = new Hotel();
@@ -100,9 +99,9 @@ public class HotelServiceDAOImpl implements HotelServiceDAO {
 
     @Override
     public int getCount(String term) {
-        return jdbcTemplate.queryForObject("select count(id) from hotel where categories like ? or name like ? or address like ? or city like ? or province like ?", new Object[]{
-                "%" + term + "%", "%" + term + "%", "%" + term + "%", "%" + term + "%", "%" + term + "%"
-        }, Integer.class);
+        return jdbcTemplate
+                .queryForObject("select count(id) from hotel where categories like ? or name like ? or address like ? or city like ? or province like ?",
+                        new Object[]{"%" + term + "%", "%" + term + "%", "%" + term + "%", "%" + term + "%", "%" + term + "%"}, Integer.class);
     }
 
     @Override
@@ -157,9 +156,8 @@ public class HotelServiceDAOImpl implements HotelServiceDAO {
         sql = sql + string.toString();
 
 
-        Collection<Map<String, Object>> rows = jdbcTemplate.queryForList(sql, new Object[]{
-                sortcolumn, sorttype, offset, limit
-        });
+        Collection<Map<String, Object>> rows = jdbcTemplate
+                .queryForList(sql, new Object[]{sortcolumn, sorttype, offset, limit});
         List<Hotel> searchList = new ArrayList<>();
         rows.stream().map((row) -> {
             Hotel hotel = new Hotel();
@@ -188,9 +186,7 @@ public class HotelServiceDAOImpl implements HotelServiceDAO {
 
     @Override
     public List<Hotel> searchHotelById(String id) {
-        Collection<Map<String, Object>> rows = jdbcTemplate.queryForList("select * from hotel where id=? ", new Object[]{
-                id
-        });
+        Collection<Map<String, Object>> rows = jdbcTemplate.queryForList("select * from hotel where id=? ", new Object[]{id});
         List<Hotel> searchList = new ArrayList<>();
         rows.stream().map((row) -> {
             Hotel hotel = new Hotel();
