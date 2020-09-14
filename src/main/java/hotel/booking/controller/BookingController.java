@@ -1,7 +1,7 @@
 package hotel.booking.controller;
 
-import hotel.booking.AccessTokenMapper;
-import hotel.booking.HotelServiceDAO;
+import hotel.booking.model.AccessTokenMapper;
+import hotel.booking.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BookingController {
 
     @Autowired
-    HotelServiceDAO hotelServiceDAO;
+    HotelService hotelService;
 
     @RequestMapping(value = "/book/confirm", method = RequestMethod.GET)
     public ResponseEntity<Object> bookingHotel(@RequestParam(required = true, name = "rooms", defaultValue = "") String rooms, @RequestParam(required = true, name = "id", defaultValue = "") String id,
@@ -26,7 +26,7 @@ public class BookingController {
                 .getAuthentication()
                 .getDetails())
                 .getDecodedDetails();
-        hotelServiceDAO.creteBooking(rooms, id, date, accessTokenMapper.getId());
+        hotelService.creteBooking(rooms, id, date, accessTokenMapper.getId());
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

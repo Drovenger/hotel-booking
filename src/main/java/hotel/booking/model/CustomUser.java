@@ -1,5 +1,6 @@
-package hotel.booking;
+package hotel.booking.model;
 
+import hotel.booking.model.UserEntity;
 import org.springframework.security.core.userdetails.User;
 
 public class CustomUser extends User {
@@ -10,7 +11,7 @@ public class CustomUser extends User {
 	private String last_name;
 
 	public CustomUser(UserEntity user) {
-		super(user.getEmail_id(), user.getPasssword(), user.getGrantedAuthoritiesList());
+		super(user.getEmail_id(), user.getPassword(), user.getGrantedAuthoritiesList());
 		this.id = user.getId();
 		this.first_name = user.getFirst_name();
 		this.last_name = user.getLast_name();

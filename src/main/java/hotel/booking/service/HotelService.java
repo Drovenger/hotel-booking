@@ -1,4 +1,4 @@
-package hotel.booking;
+package hotel.booking.service;
 
 import hotel.booking.model.Category;
 import hotel.booking.model.Hotel;
@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Transactional
-public interface HotelServiceDAO {
+public interface HotelService {
 
     public Category getCategories();
 

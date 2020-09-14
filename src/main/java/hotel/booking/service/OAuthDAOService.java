@@ -1,5 +1,6 @@
-package hotel.booking;
+package hotel.booking.service;
 
+import hotel.booking.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -22,7 +23,7 @@ public class OAuthDAOService {
 					user.setFirst_name(rs.getString("first_name"));
 					user.setId(rs.getString("id"));
 					user.setLast_name(rs.getString("last_name"));
-					user.setPasssword(rs.getString("password"));
+					user.setPassword(rs.getString("password"));
 					return user;
 				});
 

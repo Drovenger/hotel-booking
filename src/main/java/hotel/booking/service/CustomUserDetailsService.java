@@ -1,5 +1,7 @@
-package hotel.booking;
+package hotel.booking.service;
 
+import hotel.booking.model.CustomUser;
+import hotel.booking.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
