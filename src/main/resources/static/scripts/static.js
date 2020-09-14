@@ -10,6 +10,3 @@ function getLength(obj) {
 	}
 	return 0;
 }
-
-
-

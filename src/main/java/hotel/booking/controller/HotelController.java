@@ -1,4 +1,4 @@
-package hotel.booking.rest;
+package hotel.booking.controller;
 
 import hotel.booking.HotelServiceDAO;
 import hotel.booking.model.ApiResponse;
