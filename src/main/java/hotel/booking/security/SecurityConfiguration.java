@@ -46,9 +46,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/index").antMatchers("/welcome").antMatchers("/").antMatchers("/search").antMatchers("/hotel").antMatchers("/categories")
-                .antMatchers("/search/term").antMatchers("/search/hotels").antMatchers("/search/hotels/category")
-                .antMatchers("/search/hotels/**").antMatchers("/scripts/**").antMatchers("/styles/**").antMatchers("/images/**").antMatchers("/login").antMatchers("/bookingpage").antMatchers("/logout").antMatchers("/register")
+        web.ignoring().antMatchers("/index")
+                .antMatchers("/welcome")
+                .antMatchers("/")
+                .antMatchers("/search")
+                .antMatchers("/hotel")
+                .antMatchers("/categories")
+                .antMatchers("/search/term")
+                .antMatchers("/search/hotels")
+                .antMatchers("/search/hotels/category")
+                .antMatchers("/search/hotels/**")
+                .antMatchers("/scripts/**")
+                .antMatchers("/styles/**")
+                .antMatchers("/images/**")
+                .antMatchers("/login")
+                .antMatchers("/bookingpage")
+                .antMatchers("/logout")
+                .antMatchers("/register")
+                .antMatchers("/admin")
                 .antMatchers("/newuser");
 
     }
