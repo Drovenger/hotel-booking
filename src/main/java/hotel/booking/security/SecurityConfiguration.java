@@ -64,7 +64,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/logout")
                 .antMatchers("/register")
                 .antMatchers("/admin")
-                .antMatchers("/newuser");
+                .antMatchers("/newuser")
+                .antMatchers("/static/**");
 
     }
 
