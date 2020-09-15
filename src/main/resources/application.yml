@@ -3,8 +3,8 @@ spring:
     name: hotel app
   datasource:
         driverClassName: com.mysql.jdbc.Driver
-        url: "jdbc:mysql://localhost:3306/hotel_booking_web_app?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf8"
-        password: "Mc11041992$"
+        url: "jdbc:mysql://localhost:3306/hotelapp?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf8"
+        password: "12345"
         username: "root"
         testOnBorrow: true
         testWhileIdle: true
