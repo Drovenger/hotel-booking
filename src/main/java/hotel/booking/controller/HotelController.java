@@ -93,4 +93,6 @@ public class HotelController {
         hotelService.createUser(fname, lname, emailTxt, pwd);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+
 }
