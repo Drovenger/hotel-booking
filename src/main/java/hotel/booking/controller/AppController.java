@@ -26,9 +26,9 @@ public class AppController {
         return "login";
     }
 
-    @GetMapping("/booking-page")
+    @GetMapping("/bookingpage")
     public String bookingPage() {
-        return "booking-page";
+        return "bookingpage";
     }
 
     @GetMapping("/logout")
