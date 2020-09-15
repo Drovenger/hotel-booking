@@ -1,45 +1,53 @@
 package hotel.booking.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AppController {
 
-	@RequestMapping(value = {"/","/index","/welcome"}, method = RequestMethod.GET)
-	public String indexPage() {
-		return "index";
-	}
-	
-	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public String searchPage() {
-		return "search";
-	}
-	
-	@RequestMapping(value = "/hotel", method = RequestMethod.GET)
-	public String hotel() {
-		return "hotel";
-	}
-	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login() {
-		return "login";
-	}
-	
-	@RequestMapping(value = "/bookingpage", method = RequestMethod.GET)
-	public String bookingpage() {
-		return "bookingpage";
-	}
-	
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout() {
-		return "logout";
-	}
-	
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public String register() {
-		return "register";
-	}
+    @GetMapping(value = {"/", "/index", "/welcome"})
+    public String indexPage() {
+        return "index";
+    }
 
+    @GetMapping("/search")
+    public String searchPage() {
+        return "search";
+    }
+
+    @GetMapping("/hotel")
+    public String hotel() {
+        return "hotel";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/bookingpage")
+    public String bookingPage() {
+        return "bookingpage";
+    }
+
+    @GetMapping("/logout")
+    public String logout() {
+        return "logout";
+    }
+
+    @GetMapping("/register")
+    public String register() {
+        return "register";
+    }
+
+    @GetMapping("/error")
+    public String error() {
+        return "error";
+    }
+
+    @GetMapping("/admin")
+    public String admin() {
+        return "admin";
+    }
 }
