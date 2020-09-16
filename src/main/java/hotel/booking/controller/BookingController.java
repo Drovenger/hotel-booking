@@ -19,8 +19,8 @@ public class BookingController {
     HotelService hotelService;
 
     @RequestMapping(value = "/book/confirm", method = RequestMethod.GET)
-    public ResponseEntity<Object> bookingHotel(@RequestParam(required = true, name = "rooms", defaultValue = "") String rooms, @RequestParam(required = true, name = "id", defaultValue = "") String id,
-                                               @RequestParam(required = true, name = "date", defaultValue = "") String date) {
+    public ResponseEntity<Object> bookingHotel(@RequestParam(name = "rooms", defaultValue = "") String rooms, @RequestParam(name = "id", defaultValue = "") String id,
+                                               @RequestParam(name = "date", defaultValue = "") String date) {
         AccessTokenMapper accessTokenMapper = (AccessTokenMapper) ((OAuth2AuthenticationDetails) SecurityContextHolder
                 .getContext()
                 .getAuthentication()

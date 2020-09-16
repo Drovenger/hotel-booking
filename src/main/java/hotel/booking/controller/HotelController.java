@@ -86,10 +86,10 @@ public class HotelController {
 
     @RequestMapping(value = "/newuser", method = RequestMethod.POST)
     public ResponseEntity<Object> newUser(
-            @RequestParam(required = true, name = "fname", defaultValue = "") String fname,
-            @RequestParam(required = true, name = "lname", defaultValue = "") String lname,
-            @RequestParam(required = true, name = "emailTxt", defaultValue = "") String emailTxt,
-            @RequestParam(required = true, name = "pwd", defaultValue = "") String pwd) {
+            @RequestParam(name = "fname", defaultValue = "") String fname,
+            @RequestParam(name = "lname", defaultValue = "") String lname,
+            @RequestParam(name = "emailTxt", defaultValue = "") String emailTxt,
+            @RequestParam(name = "pwd", defaultValue = "") String pwd) {
         hotelService.createUser(fname, lname, emailTxt, pwd);
         return new ResponseEntity<>(HttpStatus.OK);
     }
