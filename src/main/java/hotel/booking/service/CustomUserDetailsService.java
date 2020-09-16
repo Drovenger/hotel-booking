@@ -17,7 +17,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		UserEntity userEntity = null;
+		UserEntity userEntity;
 		try {
 			userEntity = oauthDaoService.getUserDetails(username);
 			if (userEntity != null && userEntity.getId() != null && !"".equalsIgnoreCase(userEntity.getId())) {
